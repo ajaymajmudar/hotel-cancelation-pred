@@ -1,4 +1,4 @@
-# Hotel Canelation Prediction Analysis
+# Hotel Cancelation Prediction Analysis
 
 ## Background
 
