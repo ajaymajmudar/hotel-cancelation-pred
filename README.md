@@ -177,10 +177,15 @@ The first observation is that the non-parametric model performed significantly b
 
 ## Discussion
 Given the fact that a Random Forest or K Nearest Neighbors model best predicts whether or not a hotel booking will get canceled, applying the model for a hotel to improve its business operations comes in many forms.
+
 First, the model could be used to identify customers who are likely to cancel their booking, and target them with personalized marketing campaigns or offers to encourage them to keep their booking. This could help to reduce the overall number of cancellations and increase revenue for the hotel.
+
 Second, the model could be used to predict the likelihood of cancellation for new bookings, and prioritize bookings with a low likelihood of cancellation. This could allow the hotel to allocate its resources more efficiently and maximize revenue by focusing on bookings that are less likely to be canceled.
+
 Third, given that we now know which bookings are more likely to be canceled, the hotel can further plan its hotel room allocation more effectively. If the hotel knows that a significant portion of their bookings are likely to be canceled, they have more margin to overbook their hotel rooms in order to compensate for the lost revenue if they just let those rooms stay idle. 
+
 Finally, the model could be used to improve the customer experience by identifying customers who are likely to cancel their bookings and proactively addressing any issues or concerns they may have. This could help to retain customers and improve the hotel's reputation.
+
 All in all, machine learning is a powerful tool for hotels and the travel industry,  such as airlines, to use in order to target customers who are likely to cancel their reservations, choose to book with them, and many more applications. Understanding more about the customer and each individual booking through analytics can help improve the profit of hotels and the experience of customers. 
 
 
