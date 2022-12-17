@@ -40,6 +40,8 @@ Figure 2 : Sorted Mutual Information of All 246 Features
 
 Table 1 : Top 25 Selected Features
 
+!["Top 25 Selected Features"](Images/top25.png)
+
 
 It is not necessarily surprising to see that the deposit type of a booking is highly predictive of whether or not a booking is canceled. Deposit Type is a categorical variable indicating how much money the customer already paid towards the booking. ADR or average daily rate is another monetary value that has a high predictive value to a cancellation. This observation also makes logical sense, as people’s money is usually an indication of how invested they are into their plans. The exact nature of these relationships are not discovered until models are fit to the data. See the logistic regression section for a discussion on some of these features’ relationship to the target variable.
 
@@ -47,11 +49,15 @@ Alternatively, feature selection was performed on the cleaned non-categorical da
 
 Figure 4: Correlation Matrix of Features
 
+!["Correlation Matrix"](Images/correlation.png)
 
 
 Based on the outputs of Figure 4, we sorted the highest correlation values in descending order. We selected a cutoff of 0.1 as to not overfit our features and this selected the top 7 features of lead time, previous cancellations, total of special requests, required car parking spaces, booking changes, agent, and days in waiting list. All of these features make sense that they would be highly correlated with prediction cancellations, and they are slightly different from the previous feature selection as this was the non-categorical dataset. 
 
 Table 2: Correlation Selected Features
+
+!["Correlation Selected"](Images/corrtopfeatures.png)
+
 
 ## Modeling
 Once the data was cleaned and the dimensions reduced through feature selection or PCA, 4 different classification models were built and tuned to determine the best model to the most accurate predictions of whether or not a customer is going to cancel their booking or not. The 4 models were K Nearest Neighbors, Gaussian Mixture Model,  Logistic Regression, and Random Forest. 
@@ -67,15 +73,26 @@ The K-Nearest Neighbors algorithm is a classification algorithm that we can appl
 
 Figure 5 : KNN Tuning of K on Non-Categorical Dataset
 
+!["KNN Tuning "](Images/KNN tuning.png)
+
+
 Figure 6 : KNN on Non-Categorical Output Summary
+
+!["KNN Non-Cat "](Images/knn_noncat.png)
+
 
 We also performed KNN on the categorical dataset with the different features to keep consistent with the other models in order to evaluate all our models accurately. First we plotted the number of neighbor plots compared to accuracy to tune the parameter k for the highest accuracy for this dataset. 
 
 Figure 7 : KNN Tuning of K on Categorical Included Dataset
 
+!["KNN Tuning Cat "](Images/knn_cat_tuning.png)
+
+
 Here we can see that the accuracy peaked at roughly 12 number of neighbor points, which we can use as k for our KNN model. After running our KNN model we achieved an accuracy of roughly 80%, which is very similar to the other dataset KNN model. 
 
 Figure 8 : KNN on Categorical Included Data Output Summary
+
+!["KNN Cat "](Images/knn_cat.png)
 
 
 ### EM Clustering
@@ -85,7 +102,11 @@ With this data, our Gaussian mixture model has a large disparity in its performa
 
 ## Logistic Regression
 A Logistic Regression model was one of the parametric models trained to predict whether a customer will cancel their hotel booking. The model was tuned using 10-fold cross-validation and 10 different regularization parameters of increasing orders of magnitude. The combination of cross-validation and regularization was used to prevent overfitting of the model by adding an  L2 penalty to the loss function of the model that discourages the model from fitting to the noise in the data, and instead encourages it to find a more generalizable solution. Figure 9 below shows how the regularization parameter can affect the accuracy of the model. 
+
+
 Figure 9 : Model Accuracy vs Logistic Regression Regularization Parameter
+
+!["Log Reg Tuning "](Images/loreg_tuning.png)
 
 
 
@@ -94,6 +115,8 @@ From the curve depicted in Figure 9,  the best regularization parameter would be
 Although this is not the best accuracy of all the models, the advantage of a parametric approach like logistic regression is the extra insight offered by its coefficients. The magnitude and sign of the coefficient itself indicates the strength and direction of the relationship to the feature and whether or not a person will cancel their booking. Furthermore, each coefficient can be exponentiated into the odds ratio. The odds ratio says that as the value of the predictor variable increases, the odds of the target variable taking on a certain value also increase. Figure 6 shows the regression coefficient and odds ratio of each feature.
 
 Table 3 : Logistic Regression Coefficients and Odds Ratios
+
+!["Lo Reg Coeff "](Images/lo_reg_coeff.png)
 
 
 Unsurprisingly, Table 3 reveals that a person with previous cancellations on their record is 3 times more likely to cancel a hotel booking again in the future than a person that has no record of canceling. Next, we look at the number of required car parking spaces on the other end of the spectrum. It has a very small odds ratio, less than 1, indicating that the more parking spaces required by the party, the more likely they are not to cancel the reservation, perhaps because this means they are already on the property.
@@ -108,12 +131,23 @@ We are interested in finding a value for alpha that maximizes the performance of
 
 Figure 10 - Total impurity vs Regularization Parameter
 
+!["Total impurity "](Images/impurity_v_alpha.png)
+
+
 Figures 11 & 12 - Number of nodes and tree depth versus regularization parameter
+
+!["num nodes "](Images/nodes_v_alpha.png)
+
+!["depth v alpha "](Images/depth_v_alpha.png)
 
 
 
 We are next interested in tuning the number of trees in the forest. If we have either too many or too few trees, then the random effects will harm the performance of the algorithm. We can plot the number of trees in the forest versus the accuracy of the classification and observe that the performance of our algorithm peaks with an accuracy of 86.4% when we use 75 trees in the forest. This algorithm is the highest-performing algorithm that we have developed.
+
+
 Figures 13 - Tuning Number of Trees in Forest
+
+!["num trees "](Images/num_trees.png)
 
 
 
@@ -123,12 +157,19 @@ Principal Component Analysis is a technique that allows us to reduce the dimensi
 
 Figure 14 : Choosing Number of Components for PCA
 
+!["PCA components "](Images/PCA.png)
+
+
 ## Evaluation
 
 ## Results
 
 Table 4 reports the prediction accuracy of each of the tuned models depending on the training data used. As a reminder, the training data was either the top 25 selected features, the top 25 selected features scaled to unit variance, or the PCA reduced dataset using the top 6 most informative components.
+
 Table 4 - Accuracy of Each Model Based on the Type of Training Data
+
+!["num trees "](Images/results.png)
+
 
 
 
