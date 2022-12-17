@@ -35,6 +35,9 @@ Once the mutual information was calculated for each feature, the top N features 
 
 Figure 2 : Sorted Mutual Information of All 246 Features
 
+!["Sorted Mutual Information of All 246 Features"](Images/mutual_info.png)
+
+
 Table 1 : Top 25 Selected Features
 
 
