@@ -73,7 +73,7 @@ The K-Nearest Neighbors algorithm is a classification algorithm that we can appl
 
 Figure 5 : KNN Tuning of K on Non-Categorical Dataset
 
-!["KNN Tuning "](Images/KNN tuning.png)
+!["KNN Tuning "](Images/KNN_tuning.png)
 
 
 Figure 6 : KNN on Non-Categorical Output Summary
