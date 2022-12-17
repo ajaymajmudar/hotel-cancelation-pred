@@ -162,13 +162,16 @@ Figure 14 : Choosing Number of Components for PCA
 
 ## Evaluation
 
+!["evaluation "](Images/results.png)
+
+
 ## Results
 
 Table 4 reports the prediction accuracy of each of the tuned models depending on the training data used. As a reminder, the training data was either the top 25 selected features, the top 25 selected features scaled to unit variance, or the PCA reduced dataset using the top 6 most informative components.
 
 Table 4 - Accuracy of Each Model Based on the Type of Training Data
 
-!["num trees "](Images/results.png)
+!["accuracy "](Images/accuracy_table.png)
 
 
 
